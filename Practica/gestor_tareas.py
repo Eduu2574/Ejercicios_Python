@@ -10,7 +10,7 @@ def crear_tarea(descripcion, prioridad, fecha_vencimiento):
     tarea = {
         "id": len(tareas) + 1,
         "descripcion": descripcion,
-        "fecha_creacion": datetime.date.today().strftime("%Y-%m-%d"),
+        "fecha_creacion": datetime.date.today().strftime("%d-%m-%Y"),
         "fecha_vencimiento": fecha_vencimiento,
         "prioridad": prioridad,
         "completada": False
@@ -22,7 +22,7 @@ def crear_tarea(descripcion, prioridad, fecha_vencimiento):
 def mostrar_tareas():
     if tareas:
         for tarea in tareas:
-            print(f"Tarea {tarea['id']}: {tarea['descripcion']}, prioridad {tarea['prioridad']}, completada: {tarea['completada']}")
+            print(f"Tarea {tarea['id']}: {tarea['descripcion']}, prioridad {tarea['prioridad']}, fecha_creacion: {tarea['fecha_creacion']}, fecha_vencimiento: {tarea['fecha_vencimiento']}, completada: {tarea['completada']}")
     else:
         print("No hay tareas.\n")
 

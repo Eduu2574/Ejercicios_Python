@@ -1,4 +1,3 @@
-# tienda.py
 from productos import *
 from carrito import *
 from ventas import *
@@ -18,8 +17,13 @@ def menu():
             mostrar_productos()
         elif opcion == "2":
             id_producto = int(input("Introduce el ID del producto a añadir al carrito: "))
-            cantidad = int(input("Introduce la cantidad: "))
-            agregar_al_carrito(id_producto, cantidad)
+            productos = obtener_productos()  # Obtenemos los productos desde la API
+            producto_seleccionado = next((p for p in productos if p['id'] == id_producto), None)
+            if producto_seleccionado:
+                cantidad = int(input("Introduce la cantidad: "))
+                agregar_al_carrito(id_producto, cantidad, producto_seleccionado['name'], producto_seleccionado['price'])
+            else:
+                print("Producto no encontrado.")
         elif opcion == "3":
             mostrar_carrito()
         elif opcion == "4":
@@ -34,6 +38,5 @@ def menu():
         else:
             print("Opción no válida.")
 
-# Llamar a la función menu cuando se ejecuta el script directamente
 if __name__ == "__main__":
     menu()

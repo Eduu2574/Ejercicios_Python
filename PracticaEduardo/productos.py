@@ -1,36 +1,22 @@
-# productos.py
+import requests
 
-productos = {
-    1: {"nombre": "Balón de fútbol", "cantidad": 50, "precio": 20.99},
-    2: {"nombre": "Raqueta de tenis", "cantidad": 30, "precio": 35.50},
-    3: {"nombre": "Zapatillas deportivas", "cantidad": 100, "precio": 60.00},
-}
+# URL base de la API de Decathlon (simulada para el ejemplo)
+BASE_URL = "https://pokeapi.co/api/v2/pokemon/ditto"
+
+def obtener_productos():
+    url = f"{BASE_URL}"
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.json()  # Retorna los datos como un diccionario
+        else:
+            print(f"Error: {response.status_code}")
+    except Exception as e:
+        print(f"Error al realizar la petición HTTP: {e}")
+        return []
 
 def mostrar_productos():
-    print("Productos disponibles:")
-    for id_producto, producto in productos.items():
-        print(f"{id_producto}. {producto['nombre']} - Precio: {producto['precio']}€ - Stock: {producto['cantidad']}")
-
-def agregar_producto(nombre, cantidad, precio):
-    id_producto = len(productos) + 1  # Genera un nuevo ID
-    productos[id_producto] = {"nombre": nombre, "cantidad": cantidad, "precio": precio}
-    print(f"Producto {nombre} añadido exitosamente.")
-
-def eliminar_producto(id_producto):
-    if id_producto in productos:
-        del productos[id_producto]
-        print(f"Producto con ID {id_producto} eliminado.")
-    else:
-        print("Producto no encontrado.")
-
-def actualizar_producto(id_producto, nombre=None, cantidad=None, precio=None):
-    if id_producto in productos:
-        if nombre:
-            productos[id_producto]["nombre"] = nombre
-        if cantidad:
-            productos[id_producto]["cantidad"] = cantidad
-        if precio:
-            productos[id_producto]["precio"] = precio
-        print(f"Producto con ID {id_producto} actualizado.")
-    else:
-        print("Producto no encontrado.")
+    productos = obtener_productos()
+    print("\nProductos disponibles en la tienda:\n")
+    for producto in productos:
+        print(f"ID: {producto['id']} - {producto['name']} - Precio: {producto['price']}€")
