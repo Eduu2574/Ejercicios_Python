@@ -1,15 +1,15 @@
 import json
 
-# Diccionario que se usará para las tareas en gestor_tareas.py
+# Diccionario que uso para guardar las tareas en gestor_tareas.py
 tareas = []
 
-# Guardar las tareas en un archivo JSON
+# Guardo las tareas en un archivo JSON
 def guardar_tareas_en_json():
     with open("tareas.json", "w") as archivo:
         json.dump(tareas, archivo, indent=4)
     print("Tareas guardadas correctamente en JSON.\n")
 
-# Cargar las tareas desde un archivo JSON
+# Cargo las tareas desde un archivo JSON para mostrarlas
 def cargar_tareas_desde_json():
     global tareas
     try:

@@ -5,7 +5,7 @@ import datetime
 # Diccionario para almacenar las tareas
 tareas = []
 
-# Crear una nueva tarea
+# Función para crear una nueva tarea en el que le pido al usuario 3 datos
 def crear_tarea(descripcion, prioridad, fecha_vencimiento):
     tarea = {
         "id": len(tareas) + 1,
@@ -18,7 +18,7 @@ def crear_tarea(descripcion, prioridad, fecha_vencimiento):
     tareas.append(tarea)
     print(f"Tarea '{descripcion}' creada correctamente.\n")
 
-# Mostrar todas las tareas
+# Con esta función muestro todas las tareas existenes 
 def mostrar_tareas():
     if tareas:
         for tarea in tareas:
@@ -26,7 +26,7 @@ def mostrar_tareas():
     else:
         print("No hay tareas.\n")
 
-# Marcar tarea como completada
+# Funcion para marcar una tarea como completada
 def completar_tarea(id_tarea):
     for tarea in tareas:
         if tarea["id"] == id_tarea:
@@ -49,7 +49,7 @@ def ordenar_por_prioridad():
     tareas.sort(key=lambda tarea: tarea["prioridad"])
     print("Tareas ordenadas por prioridad.\n")
 
-# Programa principal para gestionar el menú de opciones
+# Menú principal del gestor de tareas
 def menu():
     while True:
         print("\nGestor de Tareas:")
@@ -62,28 +62,30 @@ def menu():
         print("7. Salir")
         
         opcion = input("Elige una opción: ")
-
-        if opcion == "1":
-            descripcion = input("Descripción de la tarea: ")
-            prioridad = int(input("Prioridad (1-5): "))
-            fecha_vencimiento = input("Fecha de vencimiento (YYYY-MM-DD): ")
-            crear_tarea(descripcion, prioridad, fecha_vencimiento)
-        elif opcion == "2":
-            mostrar_tareas()
-        elif opcion == "3":
-            id_tarea = int(input("ID de la tarea a completar: "))
-            completar_tarea(id_tarea)
-        elif opcion == "4":
-            filtrar_tareas_completadas(completadas=True)
-        elif opcion == "5":
-            ordenar_por_prioridad()
-        elif opcion == "6":
-            obtener_cita()  # LLAMA A LA FUNCIÓN PARA OBTENER LA CITA
-        elif opcion == "7":
-            print("Saliendo del programa...")
-            break
-        else:
-            print("Opción no válida, por favor elige una opción correcta.\n")
-
+        match opcion:
+            
+            case "1":
+                descripcion = input("Descripción de la tarea: ")
+                prioridad = int(input("Prioridad (1-5): "))
+                fecha_vencimiento = input("Fecha de vencimiento: ")
+                crear_tarea(descripcion, prioridad, fecha_vencimiento)
+            case "2":
+                mostrar_tareas()
+            case "3":
+                id_tarea = int(input("ID de la tarea a completar: "))
+                completar_tarea(id_tarea)
+            case "4":
+                filtrar_tareas_completadas(completadas=True)
+            case "5":
+                ordenar_por_prioridad()
+            case "6":
+                obtener_cita()
+            case "7":
+                print("Saliendo del programa...")
+                break
+            case _:
+                print("Opción no válida, por favor elige una opción correcta.\n")
+                
+# Para que se ejecute el menu al iniciar el programa
 if __name__ == "__main__":
     menu()

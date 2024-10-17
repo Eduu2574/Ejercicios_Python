@@ -10,6 +10,3 @@ def obtener_cita():
             print(f"Error en la petición. Código de estado: {response.status_code}")
     except requests.exceptions.RequestException as e:
         print(f"Error al realizar la petición HTTP: {e}")
-
-# Ejecutar la función
-obtener_cita()
