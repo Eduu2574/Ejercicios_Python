@@ -1,0 +1,9 @@
+{
+  "Nombre": "Eduardo",
+  "Edad": 18,
+  "FechaNacimiento": "2000-05-15",
+  "Modulos": [
+    "Desarrollo de aplicaciones moviles",
+    "Bases de Datos"
+  ]
+}
