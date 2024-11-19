@@ -1,0 +1,3 @@
+Nombre: Juan Pérez
+Edad: 30
+Lenguaje de programación usado: Python

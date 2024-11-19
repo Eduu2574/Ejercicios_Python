@@ -1,12 +1,15 @@
 # Estructura if
-numero = int(input("Introduce un número: "))
+edad = int(input("Introduce tu edad"))
 
-if numero > 0:
-    print("El número es positivo")
-elif numero < 0:
-    print("El número es negativo")
+# Estructura if
+
+if edad < 18:
+    print("Eres menor de edad.")
+elif edad == 18:
+    print("Tienes 18 años.")
 else:
-    print("El número es cero")
+    print("Eres mayor de edad.")
+
 
 # Estructura match
 dia_semana = int(input("Introduce un número del 1 al 3 para el día de la semana: "))
