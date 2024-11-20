@@ -33,3 +33,4 @@ print(contenido)
 os.remove(ruta_archivo)
 print(f"\nArchivo '{ruta_archivo}' eliminado.")
 '''
+

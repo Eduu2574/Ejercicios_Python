@@ -1,11 +1,6 @@
 import json  # Importa la librería json para trabajar con datos en formato JSON
 import os
 
-
-    
-
-
-
 # Especificamos el nombre del archivo JSON donde guardaremos los datos.
 
 def generarJson(nombreArchivo):

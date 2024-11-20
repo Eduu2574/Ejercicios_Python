@@ -5,6 +5,7 @@ mi_set = {10, 20, 30, 40}
 
 # Inserción
 mi_set.add(50)  # Añadir un elemento
+
 print("Set después de insertar 50:", mi_set)
 
 # Actualización (no hay una actualización directa de elementos en un set, porque no hay índices)

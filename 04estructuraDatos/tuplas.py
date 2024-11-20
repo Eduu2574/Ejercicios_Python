@@ -13,7 +13,9 @@ print("Elemento en la posición 1:", mi_tupla[1])
 tupla_ordenada = sorted(mi_tupla)  # Devuelve una lista ordenada
 print("Tupla ordenada (como lista):", tupla_ordenada)
 
+
 # Conversión de tupla a lista
 mi_lista = list(mi_tupla)
+mi_lista.insert(1,50)
 mi_lista.append(50)  # Ahora podemos modificarla
 print("Tupla convertida en lista y modificada:", mi_lista)

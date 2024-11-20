@@ -1,7 +1,7 @@
 opcion=-1
 agenda={}
 def inserta_contacto(nombre, telefono):
-    agenda[nombre]=telefono
+    agenda[telefono]=nombre
     
 while opcion!=0:
     opcion=int(input("1. Buscar contacto, 2. Insertar contacto, 3. Actualizar contacto, 4. Eliminar contacto, 5.Mostrar todos los contactos en orden ascendente, 0. Salir"))
@@ -46,7 +46,9 @@ while opcion!=0:
             print("Mostrar todos los contactos en orden ascendente")
             claves_ordenadas = sorted(agenda.keys())
             print("Claves ordenadas de la agenda:", claves_ordenadas)
-            
+        case 6:
+            for telefono, nombre in agenda.items():
+                print(nombre+":"+telefono)
         case _:
             print("Has introducido una opción incorrecta")
 print("Has salido del bucle")
